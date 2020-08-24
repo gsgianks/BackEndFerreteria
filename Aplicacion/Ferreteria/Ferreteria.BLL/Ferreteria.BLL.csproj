@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ferreteria.Common\Ferreteria.Common.csproj" />
+    <ProjectReference Include="..\Ferreteria.Model\Ferreteria.Model.csproj" />
+    <ProjectReference Include="..\Ferreteria.Repositories\Ferreteria.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ferreteria.API", "Ferreteria.API\Ferreteria.API.csproj", "{16DD600A-1D8D-44DE-B27A-C5EEDBFBD438}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ferreteria.BLL", "Ferreteria.BLL\Ferreteria.BLL.csproj", "{3A75965A-971A-436D-956D-EE9053E2EF6C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ferreteria.DAL", "Ferreteria.DAL\Ferreteria.DAL.csproj", "{E78BFC7A-7C5F-44DB-A53D-E3B145BE908B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ferreteria.Model", "Ferreteria.Model\Ferreteria.Model.csproj", "{A05C1D2A-4037-4043-9DBB-5D15783AED36}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ferreteria.Repositories", "Ferreteria.Repositories\Ferreteria.Repositories.csproj", "{D751A16E-A5C1-4844-92F2-6C5C2694B33D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ferreteria.Common", "Ferreteria.Common\Ferreteria.Common.csproj", "{F520A6B3-3C4A-4C17-9A70-F91BF20D8AC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16DD600A-1D8D-44DE-B27A-C5EEDBFBD438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16DD600A-1D8D-44DE-B27A-C5EEDBFBD438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16DD600A-1D8D-44DE-B27A-C5EEDBFBD438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16DD600A-1D8D-44DE-B27A-C5EEDBFBD438}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A75965A-971A-436D-956D-EE9053E2EF6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A75965A-971A-436D-956D-EE9053E2EF6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A75965A-971A-436D-956D-EE9053E2EF6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A75965A-971A-436D-956D-EE9053E2EF6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E78BFC7A-7C5F-44DB-A53D-E3B145BE908B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E78BFC7A-7C5F-44DB-A53D-E3B145BE908B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E78BFC7A-7C5F-44DB-A53D-E3B145BE908B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E78BFC7A-7C5F-44DB-A53D-E3B145BE908B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A05C1D2A-4037-4043-9DBB-5D15783AED36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A05C1D2A-4037-4043-9DBB-5D15783AED36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A05C1D2A-4037-4043-9DBB-5D15783AED36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A05C1D2A-4037-4043-9DBB-5D15783AED36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D751A16E-A5C1-4844-92F2-6C5C2694B33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D751A16E-A5C1-4844-92F2-6C5C2694B33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D751A16E-A5C1-4844-92F2-6C5C2694B33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D751A16E-A5C1-4844-92F2-6C5C2694B33D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F520A6B3-3C4A-4C17-9A70-F91BF20D8AC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F520A6B3-3C4A-4C17-9A70-F91BF20D8AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F520A6B3-3C4A-4C17-9A70-F91BF20D8AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F520A6B3-3C4A-4C17-9A70-F91BF20D8AC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7914257F-87DD-4232-A4D0-03A924812801}
+	EndGlobalSection
+EndGlobal
