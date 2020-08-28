@@ -16,5 +16,10 @@ namespace Ferreteria.Model
         public DateTime? Fecha_Modificacion { get; set; }
         public string Usuario_Modificacion { get; set; }
         public String Estado { get; set; }
+        public String Descripcion_Estado { get; set; }
+        public decimal Precio_Total { get; set; }
+        public decimal Saldo { get; set; }
+        public String Nombre_Usuario { get; set; }
+        
     }
 }

@@ -19,13 +19,13 @@ namespace Ferreteria.BLL
             {
                 if (_unitOfWork.Creditos.Delete(modelo))
                 {
-                    result.Descripcion = Mensajes.Mensaje_Eliminacion_Correcta;
+                    result.Descripcion = Constantes.Mensaje_Eliminacion_Correcta;
                 }
             }
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -42,7 +42,7 @@ namespace Ferreteria.BLL
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -59,7 +59,7 @@ namespace Ferreteria.BLL
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -74,17 +74,17 @@ namespace Ferreteria.BLL
                 //Datos necesarios para la inserción.
                 modelo.Fecha_Creacion = DateTime.Now;
                 modelo.Usuario_Creacion = "giank";
-                modelo.Estado = Mensajes.Codigo_Estado_Pendiente;
+                modelo.Estado = Constantes.Codigo_Estado_Pendiente;
 
                 //Insertar y recuperar el registro.
                 var id = _unitOfWork.Creditos.Insert(modelo);
                 result.Items.Add(_unitOfWork.Creditos.GetById(id));
-                result.Descripcion = Mensajes.Mensaje_Insercion_Correcta;
+                result.Descripcion = Constantes.Mensaje_Insercion_Correcta;
             }
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -101,30 +101,30 @@ namespace Ferreteria.BLL
 
                 if (_unitOfWork.Creditos.Update(modelo))
                 {
-                    result.Descripcion = Mensajes.Mensaje_Actualizacion_Correcta;
+                    result.Descripcion = Constantes.Mensaje_Actualizacion_Correcta;
                 }
             }
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
         }
         
-        public RespuestaModel<CreditoDto> Obtener(int id)
+        public RespuestaModel<CreditoDto> ObtenerPorUsuario(int id)
         {
             RespuestaModel<CreditoDto> result = new RespuestaModel<CreditoDto>();
 
             try
             {
-                result.Items.Add(_unitOfWork.Creditos.Obtener(id));
+                result.Items = _unitOfWork.Creditos.ObtenerPorUsuario(id).ToList();
             }
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -141,7 +141,24 @@ namespace Ferreteria.BLL
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
+            }
+
+            return result;
+        }
+
+        public RespuestaModel<CreditoDto> ObtenerCreditoUsuario()
+        {
+            RespuestaModel<CreditoDto> result = new RespuestaModel<CreditoDto>();
+
+            try
+            {
+                result.Items = _unitOfWork.Creditos.ObtenerCreditoUsuario().ToList();
+            }
+            catch (Exception ex)
+            {
+                result.Codigo = 99;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;

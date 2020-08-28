@@ -2,7 +2,7 @@
 
 namespace Ferreteria.Common
 {
-    public class Mensajes
+    public class Constantes
     {
         #region Mensajes
 
@@ -25,5 +25,10 @@ namespace Ferreteria.Common
 
         #endregion
 
+        #region Roles
+
+        public const string Rol_Credito = "credito";
+
+        #endregion
     }
 }

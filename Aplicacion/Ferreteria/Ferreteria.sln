@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ferreteria.Model", "Ferrete
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ferreteria.Repositories", "Ferreteria.Repositories\Ferreteria.Repositories.csproj", "{D751A16E-A5C1-4844-92F2-6C5C2694B33D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ferreteria.Common", "Ferreteria.Common\Ferreteria.Common.csproj", "{F520A6B3-3C4A-4C17-9A70-F91BF20D8AC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ferreteria.Common", "Ferreteria.Common\Ferreteria.Common.csproj", "{F520A6B3-3C4A-4C17-9A70-F91BF20D8AC2}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BaseDatos", "BaseDatos\BaseDatos.sqlproj", "{B7B1E92E-F152-4BEB-B2C3-BD93356CB054}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,11 @@ Global
 		{F520A6B3-3C4A-4C17-9A70-F91BF20D8AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F520A6B3-3C4A-4C17-9A70-F91BF20D8AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F520A6B3-3C4A-4C17-9A70-F91BF20D8AC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7B1E92E-F152-4BEB-B2C3-BD93356CB054}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7B1E92E-F152-4BEB-B2C3-BD93356CB054}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B7B1E92E-F152-4BEB-B2C3-BD93356CB054}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7B1E92E-F152-4BEB-B2C3-BD93356CB054}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7B1E92E-F152-4BEB-B2C3-BD93356CB054}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

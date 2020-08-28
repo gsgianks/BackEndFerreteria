@@ -18,6 +18,20 @@ namespace Ferreteria.API.Controllers
         }
 
         [HttpGet]
+        [Route("PorUsuario/{id:int}")]
+        public IActionResult ObtenerPorUsuario(int id)
+        {
+            return Ok(_logic.ObtenerPorUsuario(id));
+        }
+
+        [HttpGet]
+        [Route("CreditoUsuario")]
+        public IActionResult ObtenerCreditoUsuario()
+        {
+            return Ok(_logic.ObtenerCreditoUsuario());
+        }
+
+        [HttpGet]
         [Route("{id:int}")]
         public IActionResult GetById(int id)
         {

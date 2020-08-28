@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Ferreteria.Common;
 using Ferreteria.Model;
 using Ferreteria.Repositories;
 using System.Collections.Generic;
@@ -24,14 +25,28 @@ namespace Ferreteria.DAL
             }
         }
 
-        public CreditoDto Obtener(int id)
+        public IEnumerable<CreditoDto> ObtenerPorUsuario(int id)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("@pId", id);
+            parameters.Add("@Id_Usuario", id);
 
             using (var connection = new SqlConnection(_connectionString))
             {
-                return connection.QueryFirst<CreditoDto>("dbo.ObtenerCredito",
+                return connection.Query<CreditoDto>("dbo.PA_Obtener_Credito",
+                                                    parameters,
+                                                    commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+
+        public IEnumerable<CreditoDto> ObtenerCreditoUsuario()
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@Estado_Pendiente", Constantes.Codigo_Estado_Pendiente);
+            parameters.Add("@Rol", Constantes.Rol_Credito);
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                return connection.Query<CreditoDto>("dbo.PA_Obtener_Credito_Usuario",
                                                     parameters,
                                                     commandType: System.Data.CommandType.StoredProcedure);
             }

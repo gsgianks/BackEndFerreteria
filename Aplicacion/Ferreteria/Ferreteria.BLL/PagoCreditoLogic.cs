@@ -19,13 +19,13 @@ namespace Ferreteria.BLL
             {
                 if (_unitOfWork.PagosCredito.Delete(modelo))
                 {
-                    result.Descripcion = Mensajes.Mensaje_Eliminacion_Correcta;
+                    result.Descripcion = Constantes.Mensaje_Eliminacion_Correcta;
                 }
             }
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -42,7 +42,7 @@ namespace Ferreteria.BLL
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -59,7 +59,7 @@ namespace Ferreteria.BLL
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -78,12 +78,12 @@ namespace Ferreteria.BLL
                 //Insertar y recuperar el registro.
                 var id = _unitOfWork.PagosCredito.Insert(modelo);
                 result.Items.Add(_unitOfWork.PagosCredito.GetById(id));
-                result.Descripcion = Mensajes.Mensaje_Insercion_Correcta;
+                result.Descripcion = Constantes.Mensaje_Insercion_Correcta;
             }
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -97,13 +97,13 @@ namespace Ferreteria.BLL
             {
                 if (_unitOfWork.PagosCredito.Update(modelo))
                 {
-                    result.Descripcion = Mensajes.Mensaje_Actualizacion_Correcta;
+                    result.Descripcion = Constantes.Mensaje_Actualizacion_Correcta;
                 }
             }
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -120,7 +120,7 @@ namespace Ferreteria.BLL
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -137,7 +137,7 @@ namespace Ferreteria.BLL
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;

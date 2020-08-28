@@ -19,13 +19,13 @@ namespace Ferreteria.BLL
             {
                 if (_unitOfWork.Productos.Delete(modelo))
                 {
-                    result.Descripcion = Mensajes.Mensaje_Eliminacion_Correcta;
+                    result.Descripcion = Constantes.Mensaje_Eliminacion_Correcta;
                 }
             }
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -42,7 +42,7 @@ namespace Ferreteria.BLL
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -59,7 +59,7 @@ namespace Ferreteria.BLL
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -74,17 +74,17 @@ namespace Ferreteria.BLL
 
                 modelo.Fecha_Creacion = DateTime.Now;
                 modelo.Usuario_Creacion = "giank";
-                modelo.Estado = Mensajes.Codigo_Estado_Activo;
+                modelo.Estado = Constantes.Codigo_Estado_Activo;
 
                 //Insertar.
                 var id = _unitOfWork.Productos.Insert(modelo);
                 result.Items.Add(_unitOfWork.Productos.GetById(id));
-                result.Descripcion = Mensajes.Mensaje_Insercion_Correcta;
+                result.Descripcion = Constantes.Mensaje_Insercion_Correcta;
             }
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -100,13 +100,13 @@ namespace Ferreteria.BLL
                 modelo.Usuario_Modificacion = "Giank";
                 if (_unitOfWork.Productos.Update(modelo))
                 {
-                    result.Descripcion = Mensajes.Mensaje_Actualizacion_Correcta;
+                    result.Descripcion = Constantes.Mensaje_Actualizacion_Correcta;
                 }
             }
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -123,7 +123,7 @@ namespace Ferreteria.BLL
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;
@@ -140,7 +140,7 @@ namespace Ferreteria.BLL
             catch (Exception ex)
             {
                 result.Codigo = 99;
-                result.Descripcion = Mensajes.Mensaje_Error_No_Controlado + ex.Message;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
             }
 
             return result;

@@ -8,6 +8,7 @@ namespace Ferreteria.Repositories
     public interface ICreditoRepository : IRepository<Credito>
     {
         IEnumerable<CreditoDto> ObtenerTodos();
-        CreditoDto Obtener(int id);
+        IEnumerable<CreditoDto> ObtenerPorUsuario(int id);
+        IEnumerable<CreditoDto> ObtenerCreditoUsuario();
     }
 }
