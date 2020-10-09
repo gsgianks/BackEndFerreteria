@@ -14,6 +14,8 @@ namespace Ferreteria.BLL
         RespuestaModel<PagoCredito> GetList();
         RespuestaModel<PagoCreditoDto> Obtener(int id);
         RespuestaModel<PagoCreditoDto> ObtenerTodos();
+        ResultadoBaseModel InsertarPagoCredito(PagoCredito modelo);
+        RespuestaModel<PagoCreditoDto> ObtenerPorUsuario(int id);
     }
 }
      

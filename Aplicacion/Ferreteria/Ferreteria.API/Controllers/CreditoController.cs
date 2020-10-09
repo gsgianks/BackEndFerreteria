@@ -17,20 +17,26 @@ namespace Ferreteria.API.Controllers
             _logic = logic;
         }
 
-        [HttpGet]
-        [Route("PorUsuario/{id:int}")]
-        public IActionResult ObtenerPorUsuario(int id)
+        [HttpPost]
+        [Route("ListaCreditos")]
+        public IActionResult ObtenerListaCreditos([FromBody] Credito modelo)
         {
-            return Ok(_logic.ObtenerPorUsuario(id));
+            return Ok(_logic.ObtenerListaCreditos(modelo));
+        }
+
+        [HttpGet]
+        [Route("CreditoUsuario/{id:int}")]
+        public IActionResult ObtenerCreditoUsuario(int id)
+        {
+            return Ok(_logic.ObtenerCreditoUsuario(id));
         }
 
         [HttpGet]
         [Route("CreditoUsuario")]
-        public IActionResult ObtenerCreditoUsuario()
+        public IActionResult ConsultarCreditoUsuario()
         {
-            return Ok(_logic.ObtenerCreditoUsuario());
+            return Ok(_logic.ConsultarCreditoUsuario());
         }
-
         [HttpGet]
         [Route("{id:int}")]
         public IActionResult GetById(int id)
@@ -45,21 +51,21 @@ namespace Ferreteria.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Credito Credito)
+        public IActionResult Post([FromBody] Credito modelo)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            return Ok(_logic.Insert(Credito));
+            return Ok(_logic.Insert(modelo));
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] Credito Credito)
+        public IActionResult Put([FromBody] Credito modelo)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            return Ok(_logic.Update(Credito));
+            return Ok(_logic.Update(modelo));
         }
 
         [HttpDelete("{id}")]

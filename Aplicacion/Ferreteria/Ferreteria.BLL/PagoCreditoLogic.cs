@@ -143,5 +143,39 @@ namespace Ferreteria.BLL
             return result;
         }
 
+        public ResultadoBaseModel InsertarPagoCredito(PagoCredito modelo)
+        {
+            ResultadoBaseModel result = new ResultadoBaseModel();
+
+            try
+            {
+                modelo.Usuario_Creacion = "Giank";
+                result = _unitOfWork.PagosCredito.InsertarPagoCredito(modelo);
+            }
+            catch (Exception ex)
+            {
+                result.Codigo = 99;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
+            }
+
+            return result;
+        }
+
+        public RespuestaModel<PagoCreditoDto> ObtenerPorUsuario(int id)
+        {
+            RespuestaModel<PagoCreditoDto> result = new RespuestaModel<PagoCreditoDto>();
+
+            try
+            {
+                result.Items = _unitOfWork.PagosCredito.ObtenerPorUsuario(id).ToList();
+            }
+            catch (Exception ex)
+            {
+                result.Codigo = 99;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
+            }
+
+            return result;
+        }
     }
 }

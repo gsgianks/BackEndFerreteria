@@ -12,9 +12,10 @@ namespace Ferreteria.BLL
         ResultadoBaseModel Update(Credito modelo);
         ResultadoBaseModel Delete(Credito modelo);
         RespuestaModel<Credito> GetList();
-        RespuestaModel<CreditoDto> ObtenerPorUsuario(int id);
+        RespuestaModel<CreditoDto> ObtenerListaCreditos(Credito modelo);
         RespuestaModel<CreditoDto> ObtenerTodos();
-        RespuestaModel<CreditoDto> ObtenerCreditoUsuario();
+        RespuestaModel<CreditoDto> ObtenerCreditoUsuario(int id);
+        RespuestaModel<CreditoDto> ConsultarCreditoUsuario();
     }
 }
      

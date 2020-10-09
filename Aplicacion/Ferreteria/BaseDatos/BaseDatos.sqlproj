@@ -58,10 +58,14 @@
     <Folder Include="Properties" />
     <Folder Include="01. Tablas" />
     <Folder Include="04. Procedimientos" />
+    <Folder Include="03. Funciones" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="01. Tablas\01. Base Datos.sql" />
-    <Build Include="04. Procedimientos\04. PA_Obtener_Credito_Usuario.sql" />
+    <None Include="01. Tablas\01. Base Datos.sql" />
+    <None Include="04. Procedimientos\04. PA_Obtener_Credito_Usuario.sql" />
+    <None Include="04. Procedimientos\05. PA_Insertar_Pago_Credito.sql" />
+    <None Include="03. Funciones\01. FV_ObtenerSaldoCredito.sql" />
+    <None Include="04. Procedimientos\06. PA_Obtener_Pago_Credito.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="04. Procedimientos\03. PA_Obtener_Credito.sql" />

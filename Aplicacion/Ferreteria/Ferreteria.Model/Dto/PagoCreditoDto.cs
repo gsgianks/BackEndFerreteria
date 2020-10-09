@@ -13,5 +13,7 @@ namespace Ferreteria.Model
         public DateTime Fecha_Creacion { get; set; }
         public string Usuario_Creacion { get; set; }
         public String Estado { get; set; }
+        public Int16 Id_Usuario { get; set; }
+        public String Nombre_Usuario { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using Ferreteria.Common;
 using Ferreteria.Model;
 using Ferreteria.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -25,10 +26,32 @@ namespace Ferreteria.DAL
             }
         }
 
-        public IEnumerable<CreditoDto> ObtenerPorUsuario(int id)
+        public IEnumerable<CreditoDto> ObtenerListaCreditos(Credito model)
         {
+            #region Validación de parametros
+           
+            Int64? id = model.id;
+            Int16? idUsuario = model.Id_Usuario;
+            Int32? idPago = model.Id_Pago;
+            if (model.id == 0) {
+                id = null;
+            }
+            if (model.Id_Usuario == 0)
+            {
+                idUsuario = null;
+            }
+            if (model.Id_Pago == 0)
+            {
+                idPago = null;
+            }
+
+            #endregion
+
             var parameters = new DynamicParameters();
-            parameters.Add("@Id_Usuario", id);
+            parameters.Add("@Id", id);
+            parameters.Add("@Id_Pago", idPago);
+            parameters.Add("@Id_Usuario", idUsuario);
+            parameters.Add("@Estado", model.Estado);
 
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -38,7 +61,22 @@ namespace Ferreteria.DAL
             }
         }
 
-        public IEnumerable<CreditoDto> ObtenerCreditoUsuario()
+        public IEnumerable<CreditoDto> ObtenerCreditoUsuario(int id)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@Estado_Pendiente", Constantes.Codigo_Estado_Pendiente);
+            parameters.Add("@Rol", Constantes.Rol_Credito);
+            parameters.Add("@Id_Usuario", id);
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                return connection.Query<CreditoDto>("dbo.PA_Obtener_Credito_Usuario",
+                                                    parameters,
+                                                    commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+
+        public IEnumerable<CreditoDto> ConsultarCreditoUsuario()
         {
             var parameters = new DynamicParameters();
             parameters.Add("@Estado_Pendiente", Constantes.Codigo_Estado_Pendiente);

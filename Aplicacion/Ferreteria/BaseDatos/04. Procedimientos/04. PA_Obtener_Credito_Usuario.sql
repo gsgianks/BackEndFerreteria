@@ -8,20 +8,21 @@ GO
 
 CREATE PROCEDURE [dbo].[PA_Obtener_Credito_Usuario]  
 	@Estado_Pendiente CHAR(3),
-	@Rol VARCHAR(120)
+	@Rol VARCHAR(120),
+	@Id_Usuario SMALLINT = NULL
 AS 
 BEGIN  
  
 	SELECT USU.Id AS Id_Usuario	
 		  ,USU.Nombre AS Nombre_Usuario
 		  ,COALESCE(EST.Descripcion, 'Sin saldo') AS Descripcion_Estado
-		  ,COALESCE(SUM(CRE.Cantidad*CRE.Precio_Venta_Producto), 0) AS Saldo
+		  ,dbo.FV_ObtenerSaldoCredito(@Estado_Pendiente, @Rol, USU.Id) AS Saldo
 	FROM Usuario USU
-	LEFT JOIN Credito CRE ON CRE.Id_Usuario = USU.Id
+	LEFT JOIN Credito CRE ON CRE.Id_Usuario = USU.Id AND CRE.Estado =  @Estado_Pendiente
 	LEFT JOIN Estado EST ON CRE.Estado = EST.Codigo
-	WHERE COALESCE(CRE.Estado,@Estado_Pendiente) = @Estado_Pendiente
-	AND USU.Rol = @Rol
-	GROUP BY USU.Id, USU.Nombre,EST.Descripcion
+	WHERE USU.Rol = @Rol
+	AND USU.Id =  COALESCE(@Id_Usuario, USU.Id)
+	GROUP BY USU.Id, USU.Nombre,EST.Descripcion,CRE.Estado
 	ORDER BY USU.Nombre
  
 END

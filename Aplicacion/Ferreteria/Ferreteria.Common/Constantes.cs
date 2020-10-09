@@ -22,12 +22,19 @@ namespace Ferreteria.Common
 
         public const string Codigo_Estado_Activo = "ACT";
         public const string Codigo_Estado_Pendiente = "PEN";
+        public const string Codigo_Estado_Pagado = "PAG";
 
         #endregion
 
         #region Roles
 
         public const string Rol_Credito = "credito";
+
+        #endregion
+
+        #region Parametros Generales
+
+        public const string Parametro_Descripcion_Saldo = "SALABO";
 
         #endregion
     }

@@ -7,5 +7,7 @@ namespace Ferreteria.Repositories
     {
         IEnumerable<PagoCreditoDto> ObtenerTodos();
         PagoCreditoDto Obtener(int id);
+        ResultadoBaseModel InsertarPagoCredito(PagoCredito model);
+        IEnumerable<PagoCreditoDto> ObtenerPorUsuario(int id);
     }
 }

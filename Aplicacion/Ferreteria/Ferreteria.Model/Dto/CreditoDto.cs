@@ -20,6 +20,7 @@ namespace Ferreteria.Model
         public decimal Precio_Total { get; set; }
         public decimal Saldo { get; set; }
         public String Nombre_Usuario { get; set; }
+        public Int32 Id_Pago_Parcial { get; set; }
         
     }
 }

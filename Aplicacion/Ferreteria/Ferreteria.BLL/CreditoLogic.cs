@@ -75,6 +75,7 @@ namespace Ferreteria.BLL
                 modelo.Fecha_Creacion = DateTime.Now;
                 modelo.Usuario_Creacion = "giank";
                 modelo.Estado = Constantes.Codigo_Estado_Pendiente;
+                modelo.id = 0;
 
                 //Insertar y recuperar el registro.
                 var id = _unitOfWork.Creditos.Insert(modelo);
@@ -113,13 +114,13 @@ namespace Ferreteria.BLL
             return result;
         }
         
-        public RespuestaModel<CreditoDto> ObtenerPorUsuario(int id)
+        public RespuestaModel<CreditoDto> ObtenerListaCreditos(Credito modelo)
         {
             RespuestaModel<CreditoDto> result = new RespuestaModel<CreditoDto>();
 
             try
             {
-                result.Items = _unitOfWork.Creditos.ObtenerPorUsuario(id).ToList();
+                result.Items = _unitOfWork.Creditos.ObtenerListaCreditos(modelo).ToList();
             }
             catch (Exception ex)
             {
@@ -147,13 +148,30 @@ namespace Ferreteria.BLL
             return result;
         }
 
-        public RespuestaModel<CreditoDto> ObtenerCreditoUsuario()
+        public RespuestaModel<CreditoDto> ObtenerCreditoUsuario(int id)
         {
             RespuestaModel<CreditoDto> result = new RespuestaModel<CreditoDto>();
 
             try
             {
-                result.Items = _unitOfWork.Creditos.ObtenerCreditoUsuario().ToList();
+                result.Items = _unitOfWork.Creditos.ObtenerCreditoUsuario(id).ToList();
+            }
+            catch (Exception ex)
+            {
+                result.Codigo = 99;
+                result.Descripcion = Constantes.Mensaje_Error_No_Controlado + ex.Message;
+            }
+
+            return result;
+        }
+
+        public RespuestaModel<CreditoDto> ConsultarCreditoUsuario()
+        {
+            RespuestaModel<CreditoDto> result = new RespuestaModel<CreditoDto>();
+
+            try
+            {
+                result.Items = _unitOfWork.Creditos.ConsultarCreditoUsuario().ToList();
             }
             catch (Exception ex)
             {

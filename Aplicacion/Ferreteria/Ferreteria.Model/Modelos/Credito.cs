@@ -16,5 +16,6 @@ namespace Ferreteria.Model
         public DateTime? Fecha_Modificacion { get; set; }
         public string Usuario_Modificacion { get; set; }
         public String Estado { get; set; }
+        public Int32? Id_Pago_Parcial { get; set; }
     }
 }
