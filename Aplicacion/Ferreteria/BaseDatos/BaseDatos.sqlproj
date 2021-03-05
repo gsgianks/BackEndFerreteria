@@ -72,4 +72,11 @@
     <None Include="04. Procedimientos\01. PA_Validar_Usuario.sql" />
     <None Include="04. Procedimientos\02. PA_Obtener_Usuario.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="01. Tablas\02. Producto.sql" />
+    <Build Include="01. Tablas\03. Usuario.sql" />
+    <Build Include="01. Tablas\04. Proveedor.sql" />
+    <Build Include="01. Tablas\05. Pedido.sql" />
+    <Build Include="01. Tablas\06. PedidoDetalle.sql" />
+  </ItemGroup>
 </Project>

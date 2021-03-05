@@ -23,5 +23,3 @@ CREATE TABLE dbo.Producto(
 	[Usuario_Modificacion] [varchar](50) NULL,
 	[Activo] [bit] NOT NULL,
 )
-
-
