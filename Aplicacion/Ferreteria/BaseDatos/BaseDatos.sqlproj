@@ -66,6 +66,9 @@
     <None Include="04. Procedimientos\05. PA_Insertar_Pago_Credito.sql" />
     <None Include="03. Funciones\01. FV_ObtenerSaldoCredito.sql" />
     <None Include="04. Procedimientos\06. PA_Obtener_Pago_Credito.sql" />
+    <None Include="01. Tablas\07. Categoria.sql" />
+    <None Include="01. Tablas\08. Credito.sql" />
+    <None Include="01. Tablas\09. PagoCredito.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="04. Procedimientos\03. PA_Obtener_Credito.sql" />

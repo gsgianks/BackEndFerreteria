@@ -20,3 +20,6 @@ CREATE TABLE Usuario(
 	Estado CHAR(3)
 	
 )
+
+INSERT INTO Usuario(Identificacion, Nombre, Celular, Telefono, Correo_Electronico, Direccion, Rol, Contrasena, Estado, Usuario_Creacion)
+VALUES('702380702', 'Giancarlos Gamboa Salazar', '89355180', '27631067', 'gsgiank@gmail.com', 'Roxana, Limon, Costa Rica', 'Administrator', '1234', 'ACT', 'Inicio')
