@@ -1,5 +1,6 @@
 ﻿using Ferreteria.BLL;
 using Ferreteria.Model;
+using Ferreteria.Model.Autenticacion;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,6 +37,7 @@ namespace Ferreteria.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
 
+            PedidoDetalle.Usuario_Creacion = JwtProvider.ObtenerUsuario(Request.Headers["Authorization"]);
             return Ok(_logic.Insert(PedidoDetalle));
         }
 
@@ -45,6 +47,7 @@ namespace Ferreteria.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
 
+            PedidoDetalle.Usuario_Modificacion = JwtProvider.ObtenerUsuario(Request.Headers["Authorization"]);
             return Ok(_logic.Update(PedidoDetalle));
         }
 

@@ -10,6 +10,9 @@ namespace Ferreteria.Common
         public const string Mensaje_Actualizacion_Correcta = "Registro actualizado correctamente";
         public const string Mensaje_Eliminacion_Correcta = "Registro eliminado correctamente";
 
+        /*Pagos crédito*/
+        public const string Mensaje_Pago_Exitoso = "Pago realizado exitosamente";
+
         #endregion
 
         #region Errores
@@ -28,7 +31,7 @@ namespace Ferreteria.Common
 
         #region Roles
 
-        public const string Rol_Credito = "credito";
+        public const string Rol_Credito = "CRE";
 
         #endregion
 

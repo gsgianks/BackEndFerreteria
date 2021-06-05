@@ -4,7 +4,7 @@ GO
 DROP TABLE IF EXISTS PedidoDetalle
 
 CREATE TABLE PedidoDetalle(
-	Id INT PRIMARY KEY,
+	Id INT PRIMARY KEY IDENTITY,
 	Id_Pedido INT,
 	Id_Producto INT,
 	Nombre_Producto VARCHAR(240),

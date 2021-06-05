@@ -66,9 +66,13 @@
     <None Include="04. Procedimientos\05. PA_Insertar_Pago_Credito.sql" />
     <None Include="03. Funciones\01. FV_ObtenerSaldoCredito.sql" />
     <None Include="04. Procedimientos\06. PA_Obtener_Pago_Credito.sql" />
-    <None Include="01. Tablas\07. Categoria.sql" />
+    <None Include="01. Tablas\02. Categoria.sql" />
     <None Include="01. Tablas\08. Credito.sql" />
     <None Include="01. Tablas\09. PagoCredito.sql" />
+    <None Include="01. Tablas\10. Estado.sql" />
+    <None Include="01. Tablas\11. Parametros Generales.sql" />
+    <None Include="01. Tablas\12. Rol.sql" />
+    <None Include="01. Tablas\13. RolUsuario.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="04. Procedimientos\03. PA_Obtener_Credito.sql" />
@@ -76,10 +80,10 @@
     <None Include="04. Procedimientos\02. PA_Obtener_Usuario.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="01. Tablas\02. Producto.sql" />
-    <Build Include="01. Tablas\03. Usuario.sql" />
-    <Build Include="01. Tablas\04. Proveedor.sql" />
-    <Build Include="01. Tablas\05. Pedido.sql" />
-    <Build Include="01. Tablas\06. PedidoDetalle.sql" />
+    <Build Include="01. Tablas\05. Producto.sql" />
+    <Build Include="01. Tablas\04. Usuario.sql" />
+    <Build Include="01. Tablas\03. Proveedor.sql" />
+    <Build Include="01. Tablas\06. Pedido.sql" />
+    <Build Include="01. Tablas\07. PedidoDetalle.sql" />
   </ItemGroup>
 </Project>

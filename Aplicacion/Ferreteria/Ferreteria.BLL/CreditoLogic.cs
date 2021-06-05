@@ -73,7 +73,6 @@ namespace Ferreteria.BLL
             {
                 //Datos necesarios para la inserción.
                 modelo.Fecha_Creacion = DateTime.Now;
-                modelo.Usuario_Creacion = "giank";
                 modelo.Estado = Constantes.Codigo_Estado_Pendiente;
                 modelo.id = 0;
 
@@ -98,7 +97,6 @@ namespace Ferreteria.BLL
             try
             {
                 modelo.Fecha_Modificacion = DateTime.Now;
-                modelo.Usuario_Modificacion = "giank";
 
                 if (_unitOfWork.Creditos.Update(modelo))
                 {

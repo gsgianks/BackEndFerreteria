@@ -16,6 +16,7 @@ CREATE TABLE Credito(
 	Usuario_Creacion VARCHAR(35) NOT NULL,
 	Fecha_Modificacion DATETIME NULL,
 	Usuario_Modificacion VARCHAR(35),
+	Estado CHAR(3) NOT NULL,
 	CONSTRAINT Usuario_Credito_FK FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id),
 	CONSTRAINT Pago_Credito_FK FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id),
 	CONSTRAINT Pago_Credito_2_FK FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id),

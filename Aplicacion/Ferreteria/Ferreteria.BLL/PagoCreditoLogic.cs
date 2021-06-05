@@ -73,7 +73,6 @@ namespace Ferreteria.BLL
             {
                 //Datos necesarios para la inserción.
                 modelo.Fecha_Creacion = DateTime.Now;
-                modelo.Usuario_Creacion = "giank";
 
                 //Insertar y recuperar el registro.
                 var id = _unitOfWork.PagosCredito.Insert(modelo);
@@ -116,6 +115,7 @@ namespace Ferreteria.BLL
             try
             {
                 result.Items.Add(_unitOfWork.PagosCredito.Obtener(id));
+
             }
             catch (Exception ex)
             {
@@ -149,8 +149,15 @@ namespace Ferreteria.BLL
 
             try
             {
-                modelo.Usuario_Creacion = "Giank";
                 result = _unitOfWork.PagosCredito.InsertarPagoCredito(modelo);
+                if (result.Codigo == 0) {
+                    result.Descripcion = Constantes.Mensaje_Pago_Exitoso;
+                }
+
+                if (result.Codigo == 1) {
+                    result.DatoExtra = result.Descripcion;
+                    result.Descripcion =Constantes.Mensaje_Pago_Exitoso;
+                }
             }
             catch (Exception ex)
             {

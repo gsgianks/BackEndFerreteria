@@ -73,7 +73,6 @@ namespace Ferreteria.BLL
             {
                 //Datos necesarios para la inserción.;
                 modelo.Fecha_Creacion = DateTime.Now;
-                modelo.Usuario_Creacion = "giank";
 
                 //Insertar y recuperar el registro.
                 var id = _unitOfWork.Categorias.Insert(modelo);
@@ -96,7 +95,7 @@ namespace Ferreteria.BLL
             try
             {
                 modelo.Fecha_Modificacion = DateTime.Now;
-                modelo.Usuario_Modificacion = "giank";
+
                 if (_unitOfWork.Categorias.Update(modelo))
                 {
                     result.Descripcion = Constantes.Mensaje_Actualizacion_Correcta;

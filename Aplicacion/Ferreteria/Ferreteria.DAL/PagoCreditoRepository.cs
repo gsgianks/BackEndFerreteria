@@ -46,13 +46,13 @@ namespace Ferreteria.DAL
             try
             {
                 var parameters = new DynamicParameters();
-                parameters.Add("@Estado_Pendiente", Constantes.Codigo_Estado_Pendiente);
-                parameters.Add("@Rol", Constantes.Rol_Credito);
-                parameters.Add("@Id_Usuario", model.Id_Usuario);
-                parameters.Add("@Abono", model.Abono);
-                parameters.Add("@Usuario", model.Usuario_Creacion);
-                parameters.Add("@Estado_Pagado", Constantes.Codigo_Estado_Pagado);
-                parameters.Add("@Codigo_Parametro", Constantes.Parametro_Descripcion_Saldo);
+                parameters.Add("@pEstado_Pendiente", Constantes.Codigo_Estado_Pendiente);
+                parameters.Add("@pRol", Constantes.Rol_Credito);
+                parameters.Add("@pId_Usuario", model.Id_Usuario);
+                parameters.Add("@pAbono", model.Abono);
+                parameters.Add("@pUsuario", model.Usuario_Creacion);
+                parameters.Add("@pEstado_Pagado", Constantes.Codigo_Estado_Pagado);
+                parameters.Add("@pCodigo_Parametro", Constantes.Parametro_Descripcion_Saldo);
                 parameters.Add("@pCodigoError", dbType: DbType.Int16, direction: ParameterDirection.Output);
                 parameters.Add("@pError", dbType: DbType.String,size:4000, direction: ParameterDirection.Output);
 

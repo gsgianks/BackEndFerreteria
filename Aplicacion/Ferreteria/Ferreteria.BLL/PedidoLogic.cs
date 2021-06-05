@@ -73,7 +73,7 @@ namespace Ferreteria.BLL
             {
                 //Datos necesarios para la inserción.
                 modelo.Fecha_Creacion = DateTime.Now;
-                modelo.Usuario_Creacion = "giank";
+                modelo.Estado = Constantes.Codigo_Estado_Pendiente;
 
                 //Insertar y recuperar el registro.
                 var id = _unitOfWork.Pedidos.Insert(modelo);

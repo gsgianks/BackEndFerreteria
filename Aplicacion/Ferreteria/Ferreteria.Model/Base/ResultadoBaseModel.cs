@@ -8,5 +8,6 @@ namespace Ferreteria.Model
     {
         public int Codigo { get; set; }
         public string Descripcion { get; set; }
+        public string DatoExtra { get; set; }
     }
 }

@@ -7,25 +7,41 @@ DROP PROCEDURE IF EXISTS dbo.PA_Insertar_Pago_Credito
 GO
 
 CREATE PROCEDURE [dbo].[PA_Insertar_Pago_Credito]  
-	@Estado_Pendiente CHAR(3),
-	@Rol VARCHAR(120),
-	@Id_Usuario SMALLINT,
-	@Abono DECIMAL,
-	@Usuario VARCHAR(15),
-	@Estado_Pagado CHAR(3),
-	@Codigo_Parametro CHAR(6),
+	@pEstado_Pendiente CHAR(3),
+	@pRol VARCHAR(120),
+	@pId_Usuario SMALLINT,
+	@pAbono DECIMAL,
+	@pUsuario VARCHAR(15),
+	@pEstado_Pagado CHAR(3),
+	@pCodigo_Parametro CHAR(6),
 	@pCodigoError SMALLINT OUTPUT,
 	@pError VARCHAR(4000) OUTPUT
 AS 
 BEGIN  
 	BEGIN TRY
 		BEGIN TRANSACTION
-			DECLARE @lMonto DECIMAL = 0,
+			-- Se asignan valores a los parámetros de salida
+			SET @pCodigoError = 0
+			SET @pError = ''
+			
+			DECLARE @lMonto DECIMAL(18,2) = 0,
+					@lMonto_Pagar DECIMAL(18,2),
 					@lId INT,
 					@lDescripcion_Parametro VARCHAR(240)
 
 			-- Obtener el saldo de 
-			SET @lMonto = dbo.FV_ObtenerSaldoCredito(@Estado_Pendiente, @Rol, @Id_Usuario)
+			SET @lMonto = dbo.FV_ObtenerSaldoCredito(@pEstado_Pendiente, @pRol, @pId_Usuario)
+			SET @lMonto_Pagar = @lMonto - @pAbono 
+
+			-- Validar el monto a abonar
+			IF @lMonto_Pagar < 0
+			BEGIN
+				
+				SET @pCodigoError = 1
+				SET @pError = FORMAT((@lMonto_Pagar*-1), 'N','de-DE')
+				SET @pAbono = @lMonto
+				
+			END
 
 			-- Insertar el registro del pago
 			INSERT INTO dbo.PagoCredito
@@ -38,12 +54,12 @@ BEGIN
 					,Id_Usuario)
 				VALUES
 					(@lMonto
-					,@Abono
-					,(@lMonto - @Abono)
+					,@pAbono
+					,(@lMonto - @pAbono)
 					,GETDATE()
-					,@Usuario
-					,@Estado_Pagado
-					,@Id_Usuario)
+					,@pUsuario
+					,@pEstado_Pagado
+					,@pId_Usuario)
 
 			-- Recuperar el id del registro de pago
 			SET @lId = @@IDENTITY
@@ -51,15 +67,15 @@ BEGIN
 			-- Actualización los créditos asociados al pago
 			UPDATE Credito
 				SET Id_Pago = @lId,
-				Estado = @Estado_Pagado
-				WHERE Id_Usuario = @Id_Usuario
-				AND Estado = @Estado_Pendiente	
+				Estado = @pEstado_Pagado
+				WHERE Id_Usuario = @pId_Usuario
+				AND Estado = @pEstado_Pendiente	
 	 
 			-- Insertar nuevo crédito si es pago parcial
-			IF @lMonto > @Abono
+			IF @lMonto > @pAbono
 				BEGIN
 
-					SET @lDescripcion_Parametro = (SELECT Valor_Texto FROM ParametrosGenerales WHERE Codigo = @Codigo_Parametro)
+					SET @lDescripcion_Parametro = (SELECT Valor_Texto FROM ParametrosGenerales WHERE Codigo = @pCodigo_Parametro)
 
 					INSERT INTO dbo.Credito
 							(Id_Usuario
@@ -72,16 +88,17 @@ BEGIN
 							,Estado
 							,Id_Pago_Parcial)
 			
-					SELECT TOP 1 @Id_Usuario
+					SELECT TOP 1 @pId_Usuario
 							,Id
 							,@lDescripcion_Parametro
-							,(@lMonto - @Abono)
+							,(@lMonto - @pAbono)
 							,1
 							,GETDATE()
-							,@Usuario
-							,@Estado_Pendiente
+							,@pUsuario
+							,@pEstado_Pendiente
 							,@lId
 					FROM Producto	
+
 				END
 
 		IF @@TRANCOUNT > 0

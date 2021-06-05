@@ -17,7 +17,6 @@ BEGIN
       ,Telefono
       ,Correo_Electronico
       ,Direccion
-      ,Rol
       ,Contrasena
       ,Fecha_Creacion
       ,Usuario_Creacion

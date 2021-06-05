@@ -18,7 +18,6 @@ BEGIN
       ,USU.Telefono
       ,USU.Correo_Electronico
       ,USU.Direccion
-      ,USU.Rol
       ,USU.Contrasena
       ,USU.Fecha_Creacion
       ,USU.Usuario_Creacion

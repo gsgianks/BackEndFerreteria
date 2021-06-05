@@ -17,7 +17,7 @@ GO
 CREATE FUNCTION FV_ObtenerSaldoCredito 
 (
 	@Estado_Pendiente CHAR(3),
-	@Rol VARCHAR(120),
+	@Rol CHAR(3),
 	@Id_Usuario SMALLINT
 )
 RETURNS DECIMAL
@@ -29,8 +29,9 @@ BEGIN
 	-- 
 	SELECT @Result = (COALESCE(SUM(CRE.Cantidad*CRE.Precio_Venta_Producto), 0))
 	FROM Usuario USU
+	INNER JOIN RolUsuario RUS ON USU.Id = RUS.Id_Usuario
 	LEFT JOIN Credito CRE ON CRE.Id_Usuario = USU.Id AND CRE.Estado = @Estado_Pendiente
-	WHERE USU.Rol = @Rol
+	WHERE RUS.Codigo_Rol = @Rol
 	AND USU.Id =  @Id_Usuario
 	GROUP BY USU.Id
 

@@ -11,7 +11,7 @@ namespace Ferreteria.Model
         public string Telefono { get; set; }
         public string Correo_Electronico { get; set; }
         public string Direccion { get; set; }
-        public string Rol { get; set; }
+        //public string Rol { get; set; }
         public string Contrasena { get; set; }
         public DateTime Fecha_Creacion { get; set; }
         public string Usuario_Creacion { get; set; }

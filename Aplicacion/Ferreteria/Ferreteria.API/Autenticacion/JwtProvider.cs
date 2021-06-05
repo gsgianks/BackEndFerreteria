@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 
@@ -34,7 +35,7 @@ namespace Ferreteria.Model.Autenticacion
             var identity = new ClaimsIdentity(new List<Claim>()
                             {
                                 new Claim(ClaimTypes.Name,$"{user.Nombre}"),
-                                new Claim(ClaimTypes.Role,user.Rol),
+                                new Claim(ClaimTypes.NameIdentifier,user.Identificacion),
                                 new Claim(ClaimTypes.PrimarySid,user.Id.ToString()),
                             }, "Custom");
             SecurityToken token = tokenHandler.CreateJwtSecurityToken(new SecurityTokenDescriptor
@@ -59,6 +60,11 @@ namespace Ferreteria.Model.Autenticacion
                 ValidateLifetime = true,
                 ClockSkew = TimeSpan.FromSeconds(0)
             };
+        }
+
+        public static string ObtenerUsuario(string jwt) {
+            JwtSecurityToken token = new JwtSecurityTokenHandler().ReadJwtToken(jwt.Split(' ')[1]);
+            return token.Claims.First(c => c.Type == "nameid").Value;
         }
     }
 }

@@ -9,6 +9,7 @@ CREATE TABLE PagoCredito(
 	Monto DECIMAL(18,2) NOT NULL,
 	Abono DECIMAL(18,2) NOT NULL,
 	Saldo DECIMAL(18,2) NOT NULL,
+	Estado CHAR(3) NOT NULL,
 	Fecha_Creacion DATETIME NOT NULL DEFAULT GETDATE(),
 	Usuario_Creacion VARCHAR(35) NOT NULL,
 	Fecha_Modificacion DATETIME NULL,
